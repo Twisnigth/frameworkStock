@@ -11,10 +11,26 @@
 
     <?php if(!empty($data['image'])): ?>
     <div class="product-image">
-        <img src="/uploads/<?= $data['image'] ?>" alt="<?= $data['nom'] ?>">
+        <img src="/uploads/<?= $data['image'] ?>" alt="<?= $data['nom'] ?>" class="medium-image">
     </div>
     <?php endif; ?>
 </div>
+
+<style>
+    .product-image {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .medium-image {
+        max-width: 300px;
+        max-height: 300px;
+        object-fit: contain;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 5px;
+    }
+</style>
 
 <div class="actions">
     <a class="btn btn-primary" href="/stock/index">Retour à la liste</a>

@@ -64,10 +64,28 @@
         <label for="image">Image : </label>
         <?php if(!empty($stock['image'])): ?>
             <div class="current-image">
-                <img src="/uploads/<?= $stock['image'] ?>" alt="<?= $stock['nom'] ?>" style="max-width: 100px;">
+                <img src="/uploads/<?= $stock['image'] ?>" alt="<?= $stock['nom'] ?>" class="medium-image">
                 <p>Image actuelle</p>
             </div>
         <?php endif; ?>
+
+        <style>
+            .current-image {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .medium-image {
+                max-width: 200px;
+                max-height: 200px;
+                object-fit: contain;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 5px;
+                display: block;
+                margin: 0 auto 10px;
+            }
+        </style>
         <input type="file" name="image">
         <input type="hidden" name="current_image" value="<?= $stock['image'] ?>">
     </div>

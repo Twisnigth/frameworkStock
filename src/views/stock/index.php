@@ -9,6 +9,7 @@
     <thead>
         <tr>
             <th>ID</th>
+            <th>Image</th>
             <th>Nom</th>
             <th>Quantité</th>
             <th>Prix HT</th>
@@ -22,6 +23,13 @@
             foreach ($data as $value) {
                 echo "<tr>";
                     echo "<td>".$value["id"]."</td>";
+                    echo "<td>";
+                    if(!empty($value["image"])) {
+                        echo "<img src=\"/uploads/".$value["image"]."\" alt=\"".$value["nom"]."\" class=\"thumbnail-image\">";
+                    } else {
+                        echo "Aucune image";
+                    }
+                    echo "</td>";
                     echo "<td>".$value["nom"]."</td>";
                     echo "<td>".$value["quantite"]."</td>";
                     echo "<td>".$value["prix_ht"]." €</td>";
@@ -37,3 +45,14 @@
         ?>
     </tbody>
 </table>
+
+<style>
+    .thumbnail-image {
+        max-width: 50px;
+        max-height: 50px;
+        object-fit: contain;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 2px;
+    }
+</style>
